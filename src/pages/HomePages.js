@@ -7,10 +7,10 @@ import JustArrived from 'parts/HomePages/JustArrived'
 import SiteMap from 'parts/HomePages/SiteMap'
 import Footer from 'parts/Footer'
 
-const HomePages = (props) => {
+const HomePages = () => {
   return (
     <>
-        <Header />
+        <Header position="absolute" />
         <Hero />
         <BrowseRoom />
         <JustArrived />
