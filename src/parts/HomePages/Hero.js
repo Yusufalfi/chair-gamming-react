@@ -1,5 +1,6 @@
 import React from 'react'
-import Bg from "../asset/images/image-section-1.png";
+import Bg from "../../asset/images/image-section-1.png";
+
 
 
 

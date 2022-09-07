@@ -8,7 +8,7 @@ import SiteMap from 'parts/HomePages/SiteMap'
 import Footer from 'parts/Footer'
 import BreadCrumb from '../components/BreadCrumb/index'
 
-const HomePages = () => {
+const Detail = () => {
   return (
     <>
         <Header theme="black" />
@@ -27,4 +27,4 @@ const HomePages = () => {
   )
 }
 
-export default HomePages
+export default Detail

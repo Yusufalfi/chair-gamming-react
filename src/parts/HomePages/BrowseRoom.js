@@ -1,11 +1,34 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import catalog1 from '../../asset/images/image-catalog-1.png';
 import catalog2 from '../../asset/images/image-catalog-2.png';
 import catalog3 from '../../asset/images/image-catalog-3.png';
 import catalog4 from '../../asset/images/image-catalog-4.png';
 
+import useAsync from 'helpers/hooks/useAsync';
+
 const BrowseRoom = () => {
+  const { data, status, error, run, isLoading } = useAsync({data: {username : ""}})
+ 
+  useEffect(() => {
+    run(
+      fetch(
+        "https://4987ba14-a7a4-4d72-a1bd-384a8d306021.mock.pstmn.io/api/categories/?page=1&limit=4"
+        ).then(async response => {
+            const jsonResponse = await response.json()
+            if(response.ok) {
+              return jsonResponse
+            } else {
+              throw new Error(JSON.stringify(jsonResponse))
+            }
+         })
+      );
+        
+    }, [run]);
+    console.log(data, status, error);
+
+  if(isLoading) return "Loading"
+
   return (
     <section className="flex bg-gray-100 py-16 px-4" id="browse-the-room">
       <div className="container mx-auto">
@@ -32,7 +55,7 @@ const BrowseRoom = () => {
               <h5 className="text-lg font-semibold">Living Room</h5>
               <span className="">18.309 items</span>
             </div>
-            <Link to="" className="stretched-link">
+            <Link to="#" className="stretched-link">
             
             </Link>
           </div>
@@ -52,7 +75,7 @@ const BrowseRoom = () => {
               <h5 className="text-lg font-semibold">Decoration</h5>
               <span className="">77.392 items</span>
             </div>
-            <Link href="" className="stretched-link">
+            <Link href="#" className="stretched-link">
             
             </Link>
           </div>
@@ -72,7 +95,7 @@ const BrowseRoom = () => {
               <h5 className="text-lg font-semibold">Living Room</h5>
               <span className="">22.094 items</span>
             </div>
-            <Link href="" className="stretched-link">
+            <Link href="#" className="stretched-link">
             
             </Link>
           </div>
@@ -90,7 +113,7 @@ const BrowseRoom = () => {
               <h5 className="text-lg font-semibold">Children Room</h5>
               <span className="">837 items</span>
             </div>
-            <Link href="" className="stretched-link">
+            <Link href="#" className="stretched-link">
             
             </Link>
           </div>

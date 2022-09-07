@@ -2,7 +2,7 @@
 import './asset/css/app.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import HomePages from './pages/HomePages';
-import Details from './pages/Detail';
+import Detail from './pages/Detail';
 import Cart from 'pages/Cart';
 import Congratulation from 'pages/Congratulation';
 import NotFound from 'pages/NotFound';
@@ -16,7 +16,7 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={HomePages} />
-          <Route path="/categories/:idc" component={Details} />
+          <Route path="/categories/:idc" component={Detail} />
           <Route path="/cart" component={Cart} />
           <Route path="/congratulation" component={Congratulation} />
           <Route path="*" component={NotFound} />
